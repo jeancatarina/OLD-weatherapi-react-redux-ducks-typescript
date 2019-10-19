@@ -1,0 +1,1 @@
+# weatherapi-react-redux-ducks-typescript
