@@ -1,0 +1,11 @@
+#CardGroup {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (max-width: 575px) {
+	#CardGroup {
+		flex-direction: column;
+	}
+}

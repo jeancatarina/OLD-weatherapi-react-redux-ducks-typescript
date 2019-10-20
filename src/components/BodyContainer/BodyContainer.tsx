@@ -6,6 +6,9 @@ const sectionStlye = {
 	backgroundColor: colors.appBackground,
 	width: '100%',
 	height: '800px',
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center',
 };
 
 const BodyContainer = () => (
