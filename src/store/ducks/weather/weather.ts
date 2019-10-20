@@ -26,17 +26,17 @@ export const reducer: Reducer = (state = initialState, action) => {
 
 // Action Creators
 
-export const fetchData = () => (dispatch) => {
-	dispatch(setLoading(true));
+export const fetchData = () => (dispatch: Reducer) => {
+	// dispatch(setLoading(true));
 
-	fetch('https://openweathermap.org').then((response: Response) => {
-		if (!response.ok) {
-			throw Error(response.statusText);
-		}
+	// fetch('https://openweathermap.org').then((response: Response) => {
+	// 	if (!response.ok) {
+	// 		throw Error(response.statusText);
+	// 	}
 
-		dispatch(setLoading(false));
-		return response.json();
-	});
+	// 	dispatch(setLoading(false));
+	// 	return response.json();
+	// });
 };
 
 const setLoading = (active: boolean) => ({

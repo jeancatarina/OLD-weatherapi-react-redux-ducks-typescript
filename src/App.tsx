@@ -1,9 +1,12 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import HomePage from './components/HomePage/HomePage';
+import store from './store';
 
 const App: React.FC = () => (
-	<div className="App">
-		<header className="App- header" />
-	</div>
+	<Provider store={store}>
+		<HomePage />
+	</Provider>
 );
 
 export default App;
