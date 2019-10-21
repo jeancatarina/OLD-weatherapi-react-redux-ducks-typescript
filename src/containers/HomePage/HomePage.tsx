@@ -5,9 +5,11 @@ import * as weatherActionCreators from '../../store/ducks/weather/actionCreators
 import HomePagePresentational from '../../components/HomePage/HomePage';
 import { WeatherState } from '../../store/ducks/weather/types';
 
-const mapStateToProps = (state: WeatherState) => ({
+const mapStateToProps = (state: WeatherState) => {
+	debugger;
+	return ({
 	weatherData: state.weather.weatherData,
-});
+})};
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(weatherActionCreators, dispatch);
 

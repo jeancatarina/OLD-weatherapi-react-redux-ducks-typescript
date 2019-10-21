@@ -32,7 +32,7 @@ const Card: React.FC<Props> = (props: Props): React.ReactElement => {
 	let temperature, temperatureColor;
 
 	useEffect(() => {
-		fetchData("London");
+		fetchData(city);
 	}, []);
 
 	if (!weatherData) {
