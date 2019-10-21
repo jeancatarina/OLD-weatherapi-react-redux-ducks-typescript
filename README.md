@@ -1,4 +1,12 @@
 # Weather Now
+# Stack
+- React
+- Redux
+- Typescript
+- React Ducks Architecture
+- Yarn
+- Eslint
+- Jest
 
 # Features:
 Displays the weather conditions of the following cities:
