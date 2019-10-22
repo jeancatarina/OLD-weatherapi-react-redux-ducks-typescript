@@ -79,3 +79,8 @@ export const degreeStyle = {
 	fontSize: "38px",
 	verticalAlign: "super"
 };
+
+export const loadingContainerStyle = {
+	display: "flex",
+	justifyContent: "center"
+};
