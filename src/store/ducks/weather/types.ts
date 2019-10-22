@@ -6,11 +6,7 @@ export enum WeatherTypes {
 }
 
 export interface WeatherData {
-	weatherData?: {
-		main: {
-			temp: number
-		}
-	}
+	getIn: Function
 }
 
 export interface WeatherState {

@@ -2,6 +2,8 @@
 # Stack
 - React
 - Redux
+- Redux-Thunk
+- ImmutableJS
 - Typescript
 - React Ducks Architecture
 - Yarn

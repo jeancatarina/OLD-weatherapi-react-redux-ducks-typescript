@@ -11,21 +11,10 @@ const sectionStlye = {
 	alignItems: "center"
 };
 
-interface Props {
-	fetchData: Function,
-	weatherData?: {
-		main: {
-			temp: number
-		}
-	}
-}
-
-const BodyContainer: React.FC<Props> = (props: Props) => {
-	const { fetchData, weatherData } = props;
-
+const BodyContainer: React.FC = (props) => {
 	return (
 		<section style={sectionStlye}>
-			<CardGroup fetchData={fetchData} weatherData={weatherData} />
+			<CardGroup />
 		</section>
 	);
 };
