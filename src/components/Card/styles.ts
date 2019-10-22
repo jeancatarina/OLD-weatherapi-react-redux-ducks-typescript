@@ -84,3 +84,13 @@ export const loadingContainerStyle = {
 	display: "flex",
 	justifyContent: "center"
 };
+
+export const updatedAtStyle = {
+	color: colors.darkGray,
+	fontSize: "12px"
+}
+
+export const HumidityPressureContainerStyle = {
+	display: "flex",
+	justifyContent: "center"
+}

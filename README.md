@@ -1,4 +1,7 @@
 # Weather Now
+# Preview
+![Alt text](https://github.com/jeancatarina/weatherapi-react-redux-ducks-typescript/blob/master/github/weatherNow2.gif?raw=true)
+
 # Stack
 - React
 - Redux
@@ -9,6 +12,9 @@
 - Yarn
 - Eslint
 - Jest
+
+# Api
+https://openweathermap.org/api
 
 # Features:
 Displays the weather conditions of the following cities:
