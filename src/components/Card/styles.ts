@@ -13,7 +13,6 @@ const defaultCardStyle = {
 	width: "250px",
 	boxShadow: `0px 0px 3px ${colors.boxShadow}`,
 	marginBottom: "30px",
-	marginRight: "50px"
 };
 
 export const mediumStyle = {
@@ -52,7 +51,7 @@ export const sectionStyle = {
 	}
 };
 
-const footerHeight: { [key: number]: string } = ["42px", "87px"];
+const footerHeight: { [key: number]: string } = ["44px", "89px"];
 
 export const getFooterStyle = (size: number) => ({
 	...textAlignStyle,
@@ -82,15 +81,43 @@ export const degreeStyle = {
 
 export const loadingContainerStyle = {
 	display: "flex",
-	justifyContent: "center"
+	justifyContent: "center",
+	height: "182px"
 };
 
 export const updatedAtStyle = {
 	color: colors.darkGray,
-	fontSize: "12px"
-}
+	fontSize: "11px"
+};
 
 export const HumidityPressureContainerStyle = {
 	display: "flex",
+	justifyContent: "center",
+	marginBottom: "18px"
+};
+
+export const footerTitleStyle = {
+	color: colors.darkGray,
+	fontSize: "12px",
+	marginBottom: "3px"
+};
+
+export const humidityContainerStyle = {
+	marginRight: "64px"
+};
+
+export const footerSubtitleStyle = {
+	color: colors.darkerGray
+};
+
+export const footerSubtitleContainer = {
+	display: "flex",
 	justifyContent: "center"
-}
+};
+
+export const measureStyle = {
+	fontSize: "12px",
+	display: "flex",
+	alignItems: "flex-end",
+	color: colors.darkerGray
+};

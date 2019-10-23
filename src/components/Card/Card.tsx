@@ -52,20 +52,32 @@ const getBody = (weatherData: WeatherData) => {
 
 const getHumidityPressure = (weatherData: WeatherData) => (
 	<div style={styles.HumidityPressureContainerStyle}>
-		<div>
-			<div>{`HUMIDITY`}</div>
-			<div>{`${weatherData.main.humidity}%`}</div>
+		<div style={styles.humidityContainerStyle}>
+			<div style={styles.footerTitleStyle}>{`HUMIDITY`}</div>
+			<div style={styles.footerSubtitleContainer}>
+				<div style={styles.footerSubtitleStyle}>
+					{weatherData.main.humidity}
+				</div>
+				<div style={styles.measureStyle}>{"%"}</div>
+			</div>
 		</div>
 		<div>
-			<div>{`PRESSURE`}</div>
-			<div>{`${weatherData.main.pressure}hPa`}</div>
+			<div style={styles.footerTitleStyle}>{`PRESSURE`}</div>
+			<div style={styles.footerSubtitleContainer}>
+				<div style={styles.footerSubtitleStyle}>
+					{weatherData.main.pressure}
+				</div>
+				<div style={styles.measureStyle}>{"hPa"}</div>
+			</div>
 		</div>
 	</div>
 );
 const getFooter = (size: number, weatherData: WeatherData) => (
 	<footer style={styles.getFooterStyle(size)}>
 		{size === 1 && getHumidityPressure(weatherData)}
-		<div style={styles.updatedAtStyle}>{`Updated at ${weatherData.updatedAt}`}</div>
+		<div
+			style={styles.updatedAtStyle}
+		>{`Updated at ${weatherData.updatedAt}`}</div>
 	</footer>
 );
 

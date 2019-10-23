@@ -5,7 +5,7 @@ import CardGroup from "../CardGroup/CardGroup";
 const sectionStlye = {
 	backgroundColor: colors.appBackground,
 	width: "100%",
-	height: "800px",
+	height: "100vh",
 	display: "flex",
 	justifyContent: "center",
 	alignItems: "center"
