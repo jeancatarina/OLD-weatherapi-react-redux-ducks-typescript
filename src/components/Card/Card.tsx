@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as styles from "./styles";
 import images from "../../assets/images/images";
 import { Props, WeatherData } from "./interfaces";
+import utils from "../../utils/utils";
 
 const getTemperatureColor = (temp: number) => {
 	if (temp === 5 || temp < 5) {
@@ -15,6 +16,19 @@ const getTemperatureColor = (temp: number) => {
 	if (temp > 25) {
 		return styles.getTemperature("Red");
 	}
+};
+
+const shouldFetchWeather = (city: string) => {
+	let diffDate, minutes;
+
+	if (!utils.getCacheData(city)) {
+		return true;
+	}
+
+	diffDate = utils.getDiffBetweeenToday(utils.getCacheData(city).date);
+	minutes = utils.getMillisecondsToMinutes(diffDate);
+
+	return minutes > 9;
 };
 
 const getHeader = (city: string) => (
@@ -80,11 +94,16 @@ const getLoading = () => (
 );
 
 const Card: React.FC<Props> = (props: Props): React.ReactElement => {
-	const { city, size, weatherData, fetchData } = props;
+	const { city, size, fetchData } = props,
+		[weatherData, setWeatherData] = useState(props.weatherData);
 
 	useEffect(() => {
-		fetchData(city);
-	}, []);
+		if (shouldFetchWeather(city)) {
+			fetchData(city);
+		} else {
+			setWeatherData(utils.getCacheData(city));
+		}
+	}, [props.weatherData]);
 
 	return (
 		<div style={styles.cardStyle[size]}>

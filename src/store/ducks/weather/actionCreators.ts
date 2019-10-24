@@ -9,14 +9,6 @@ const getUrl = (city: string) => {
 	return `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${celsius}`;
 };
 
-const getCurrentTime = () =>
-	new Date().toLocaleString("pt-BR", {
-		hour: "numeric",
-		minute: "numeric",
-		second: "numeric",
-		hour12: true
-	});
-
 export const fetchData = (city: string) => (dispatch: Dispatch) => {
 	dispatch(setLoading(true));
 
@@ -35,11 +27,12 @@ export const fetchData = (city: string) => (dispatch: Dispatch) => {
 		.then((response: Response) => {
 			const data = {
 				...response,
-				updatedAt: getCurrentTime()
+				updatedAt: utils.getCurrentTime(),
+				date: new Date()
 			};
 
 			dispatch(setLoading(false));
 			dispatch(setWeatherData(data));
-			utils.setCacheData(data);
+			utils.setCacheData(city, data);
 		});
 };
