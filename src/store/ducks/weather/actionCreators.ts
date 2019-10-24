@@ -1,5 +1,6 @@
 import { Dispatch } from "redux";
 import { setLoading, setWeatherData } from "./actions";
+import utils from "../../../utils/utils";
 
 const getUrl = (city: string) => {
 	const apiKey = "2b0c4e081db00228bb7deb568eee51c1",
@@ -7,6 +8,14 @@ const getUrl = (city: string) => {
 
 	return `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${celsius}`;
 };
+
+const getCurrentTime = () =>
+	new Date().toLocaleString("pt-BR", {
+		hour: "numeric",
+		minute: "numeric",
+		second: "numeric",
+		hour12: true
+	});
 
 export const fetchData = (city: string) => (dispatch: Dispatch) => {
 	dispatch(setLoading(true));
@@ -24,7 +33,13 @@ export const fetchData = (city: string) => (dispatch: Dispatch) => {
 			return response.json();
 		})
 		.then((response: Response) => {
+			const data = {
+				...response,
+				updatedAt: getCurrentTime()
+			};
+
 			dispatch(setLoading(false));
-			dispatch(setWeatherData(response));
+			dispatch(setWeatherData(data));
+			utils.setCacheData(data);
 		});
 };

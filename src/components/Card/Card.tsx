@@ -1,22 +1,7 @@
 import React, { useEffect } from "react";
 import * as styles from "./styles";
-import loader from "../../assets/images/loader.svg";
-
-interface WeatherData {
-	main: {
-		temp: number;
-		humidity: number;
-		pressure: number;
-	};
-	updatedAt: string;
-}
-
-interface Props {
-	size: number;
-	city: string;
-	fetchData: Function;
-	weatherData?: WeatherData;
-}
+import images from "../../assets/images/images";
+import { Props, WeatherData } from "./interfaces";
 
 const getTemperatureColor = (temp: number) => {
 	if (temp === 5 || temp < 5) {
@@ -90,7 +75,7 @@ const getContent = (size: number, weatherData: WeatherData) => (
 
 const getLoading = () => (
 	<div style={styles.loadingContainerStyle}>
-		<img src={loader} alt="Loading..." />
+		<img src={images.loader} alt="Loading..." />
 	</div>
 );
 

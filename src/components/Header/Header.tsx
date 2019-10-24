@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/images/logo.svg";
+import images from "../../assets/images/images";
 import colors from "../../styles/colors";
 
 const headerStyle = {
@@ -19,7 +19,7 @@ const logoStyle = {
 
 const Header: React.FC = () => (
 	<header style={headerStyle}>
-		<img style={logoStyle} src={logo} alt="Weather Now" />
+		<img style={logoStyle} src={images.logo} alt="Weather Now" />
 	</header>
 );
 

@@ -1,17 +1,7 @@
 import React from "react";
 import Card from "../../containers/Card/Card";
 import "./style.scss";
-
-enum Cities {
-	Nuuk = "Nuuk, GL",
-	Urubici = "Urubici, BR",
-	Nairobi = "Nairobi, KE"
-}
-
-enum Size {
-	Medium,
-	Large
-}
+import { Cities, Size } from "./enums";
 
 const CardGroup: React.FC = props => {
 	return (
