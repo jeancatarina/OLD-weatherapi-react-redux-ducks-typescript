@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { setLoading, setWeatherData } from "./actions";
+import * as actions from "./actions";
 import utils from "../../../utils/utils";
 
 const getUrl = (city: string) => {
@@ -10,7 +10,7 @@ const getUrl = (city: string) => {
 };
 
 export const fetchData = (city: string) => (dispatch: Dispatch) => {
-	dispatch(setLoading(true));
+	dispatch(actions.setLoading({ city, active: true }));
 
 	fetch(getUrl(city), {
 		headers: {
@@ -31,8 +31,17 @@ export const fetchData = (city: string) => (dispatch: Dispatch) => {
 				date: new Date()
 			};
 
-			dispatch(setLoading(false));
-			dispatch(setWeatherData(data));
+			dispatch(actions.setLoading({ city, active: false }));
+			dispatch(
+				actions.setloadDataHasError({ hasError: false, city: city })
+			);
+			dispatch(actions.setWeatherData(data));
 			utils.setCacheData(city, data);
+		})
+		.catch(error => {
+			dispatch(actions.setLoading({ city, active: false }));
+			dispatch(
+				actions.setloadDataHasError({ hasError: true, city: city })
+			);
 		});
 };

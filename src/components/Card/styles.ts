@@ -12,7 +12,7 @@ const defaultCardStyle = {
 	backgroundColor: colors.white,
 	width: "250px",
 	boxShadow: `0px 0px 3px ${colors.boxShadow}`,
-	marginBottom: "30px",
+	marginBottom: "30px"
 };
 
 export const mediumStyle = {
@@ -120,4 +120,18 @@ export const measureStyle = {
 	display: "flex",
 	alignItems: "flex-end",
 	color: colors.darkerGray
+};
+
+export const errorContentContainer = {
+	display: "flex",
+	justifyContent: "center",
+	height: "182px",
+	flexDirection: "column" as const,
+	alignItems: "center"
+};
+
+export const errorMessageStyle = {
+	color: colors.redYoung,
+	fontSize: "18px",
+	paddingBottom: "16px"
 };

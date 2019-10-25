@@ -12,11 +12,14 @@ interface Props {
 
 const mapStateToProps = (state: WeatherState, props: Props) => {
 	const { city } = props,
-		cityWithoutCountry = city.split(",")[0],
-		weatherData = state.weather.getIn([cityWithoutCountry, "data"]);
+		weatherData = state.weather.getIn([city, "data"]),
+		loadDataHasError = state.weather.getIn([city, "loadDataHasError"]),
+		loading = state.weather.getIn([city, "loading"]);
 
 	return {
-		weatherData: weatherData
+		weatherData: weatherData,
+		loadDataHasError: loadDataHasError,
+		loading: loading
 	};
 };
 

@@ -4,6 +4,7 @@ import "./style.scss";
 import { Cities, Size } from "./enums";
 
 const CardGroup: React.FC = props => {
+
 	return (
 		<article id="CardGroup">
 			<Card city={Cities.Nuuk} size={Size.Medium} />

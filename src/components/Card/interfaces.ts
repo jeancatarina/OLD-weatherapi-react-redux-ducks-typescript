@@ -12,4 +12,6 @@ export interface Props {
 	city: string;
 	fetchData: Function;
 	weatherData?: WeatherData;
+	loadDataHasError?: boolean;
+	loading?: boolean;
 }

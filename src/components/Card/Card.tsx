@@ -3,6 +3,7 @@ import * as styles from "./styles";
 import images from "../../assets/images/images";
 import { Props, WeatherData } from "./interfaces";
 import utils from "../../utils/utils";
+import Button from "../Button/Button";
 
 const getTemperatureColor = (temp: number) => {
 	if (temp === 5 || temp < 5) {
@@ -93,8 +94,36 @@ const getLoading = () => (
 	</div>
 );
 
+const getErrorContent = (city: string, fetchData: Function) => (
+	<div style={styles.errorContentContainer}>
+		<span style={styles.errorMessageStyle}>{"Something went wrong"}</span>
+		<Button onClick={fetchData.bind(undefined, city)}>{"Try Again"}</Button>
+	</div>
+);
+
+const getContentOrLoadingOrError = (
+	size: number,
+	city: string,
+	fetchData: Function,
+	weatherData?: WeatherData,
+	loadDataHasError?: boolean,
+	loading?: boolean
+) => {
+	if (loading || (!weatherData && !loadDataHasError)) {
+		return getLoading();
+	}
+
+	if (weatherData && !loadDataHasError) {
+		return getContent(size, weatherData);
+	}
+
+	if (loadDataHasError) {
+		return getErrorContent(city, fetchData);
+	}
+};
+
 const Card: React.FC<Props> = (props: Props): React.ReactElement => {
-	const { city, size, fetchData } = props,
+	const { city, size, fetchData, loadDataHasError, loading } = props,
 		[weatherData, setWeatherData] = useState(props.weatherData);
 
 	useEffect(() => {
@@ -108,7 +137,14 @@ const Card: React.FC<Props> = (props: Props): React.ReactElement => {
 	return (
 		<div style={styles.cardStyle[size]}>
 			{getHeader(city)}
-			{!weatherData ? getLoading() : getContent(size, weatherData)}
+			{getContentOrLoadingOrError(
+				size,
+				city,
+				fetchData,
+				weatherData,
+				loadDataHasError,
+				loading
+			)}
 		</div>
 	);
 };
