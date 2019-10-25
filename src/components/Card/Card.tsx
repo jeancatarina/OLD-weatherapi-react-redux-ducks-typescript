@@ -41,7 +41,7 @@ const getBody = (weatherData: WeatherData) => {
 		temperatureColor = getTemperatureColor(temperature);
 
 	return (
-		<section style={styles.sectionStyle}>
+		<section id={"sectionBody"} style={styles.sectionStyle}>
 			<div style={temperatureColor}>
 				{temperature}
 				<div style={styles.degreeStyle}>{"º"}</div>
@@ -89,7 +89,7 @@ const getContent = (size: number, weatherData: WeatherData) => (
 );
 
 const getLoading = () => (
-	<div style={styles.loadingContainerStyle}>
+	<div id={"loadingContent"} style={styles.loadingContainerStyle}>
 		<img src={images.loader} alt="Loading..." />
 	</div>
 );

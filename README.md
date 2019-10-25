@@ -13,6 +13,8 @@
 - Yarn
 - Eslint
 - Jest
+- chai
+- enzyme
 
 # Api
 https://openweathermap.org/api

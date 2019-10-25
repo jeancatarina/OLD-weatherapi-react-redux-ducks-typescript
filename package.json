@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"axios": "^0.19.0",
 		"immutable": "^4.0.0-rc.12",
 		"react": "^16.10.2",
 		"react-dom": "^16.10.2",
@@ -19,7 +20,8 @@
 		"eject": "react-scripts eject",
 		"test": "jest",
 		"tdd": "jest --watch",
-		"test:coverage": "jest --coverage"
+		"test:coverage": "jest --coverage",
+		"browser": "node --inspect-brk ../node_modules/jest/bin/jest.js --runInBand src/components/Card/__tests_ _/Card.test.tsx"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
