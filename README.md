@@ -1,8 +1,10 @@
 # Weather Now
 # Preview
-https://jeancatarina-weather-now.netlify.com
 ![Alt text](https://github.com/jeancatarina/weatherapi-react-redux-ducks-typescript/blob/master/github/weatherNow2.gif?raw=true)
 ![Alt text](https://github.com/jeancatarina/weatherapi-react-redux-ducks-typescript/blob/master/github/loadDataError.gif?raw=true)
+
+# Link
+https://jeancatarina-weather-now.netlify.com
 
 # Stack
 - React
